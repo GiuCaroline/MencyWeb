@@ -5,3 +5,79 @@
   --font-poppins: "Poppins", sans-serif;
   --font-sans: "Poppins", sans-serif;
 }
+
+.linha-passos {
+    position: relative;
+    display: none;
+    height: 3px;
+    margin-top: 136px;
+    background: #e2e2e2;
+    border-radius: 999px;
+}
+
+.bolinha-passos {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #c19000;
+    opacity: 0;
+    transform: translateY(-50%);
+    animation: percorrer-linha 6s linear infinite;
+    animation-delay: var(--atraso);
+}
+
+.linha-passos--segunda .bolinha-passos {
+    animation-delay: calc(3s + var(--atraso));
+}
+
+@keyframes percorrer-linha {
+    0% {
+        left: 0;
+        opacity: 0;
+    }
+
+    5% {
+        opacity: 1;
+    }
+
+    38% {
+        opacity: 1;
+    }
+
+    44% {
+        left: calc(100% - 8px);
+        opacity: 0;
+    }
+
+    100% {
+        left: calc(100% - 8px);
+        opacity: 0;
+    }
+}
+
+@media (min-width: 768px) {
+    .linha-passos {
+        display: block;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .bolinha-passos {
+        animation: none;
+        opacity: 1;
+        left: calc(50% - 4px);
+    }
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+}
