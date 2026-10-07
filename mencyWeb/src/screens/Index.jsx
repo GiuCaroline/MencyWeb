@@ -1,7 +1,9 @@
 import { NavHome } from "../components/navHome";
+import { useNavigate } from "react-router-dom";
 import { ArrowDownIcon, ChartPieSliceIcon, BankIcon, TargetIcon, ChartBarIcon, ShieldCheckIcon, LockKeyIcon, ShieldIcon, RocketLaunchIcon, ArrowRightIcon } from "@phosphor-icons/react"
 
 export default function Index() {
+    const navigate = useNavigate();
     return (
         <main className="min-h-screen w-full bg-[#FAFAFA] font-poppins">
             <NavHome />
@@ -219,7 +221,7 @@ export default function Index() {
                 <p className="text-center text-[30px] font-semibold text-white cursor-default mt-[2%] max-w-md">Pronto para cuidar melhor do seu dinheiro?</p>
                 <p className="text-left text-white text-[18px] cursor-default mt-[1%]">Comece a organizar sua vida financeira com o Mency.</p>
 
-                <button className="cursor-pointer flex items-center justify-center gap-2 bg-white text-[#C19000] py-3 px-6 rounded-xl text-[18px] mt-[2%] transition duration-300 hover:scale-105">Começar agora <ArrowRightIcon size={28} /></button>
+                <button onClick={() => navigate("/login")} className="cursor-pointer flex items-center justify-center gap-2 bg-white text-[#C19000] py-3 px-6 rounded-xl text-[18px] mt-[2%] transition duration-300 hover:scale-105">Começar agora <ArrowRightIcon size={28} /></button>
             </section>
         </main>
     );
