@@ -76,8 +76,6 @@ export default function Login() {
                             </button>
                         </form>
 
-                        <CriarConta />
-
                     </div>
                 </div>
 
@@ -205,20 +203,6 @@ function OpcoesLogin() {
             </button>
 
         </div>
-    );
-}
-
-function CriarConta() {
-    return (
-        <p className="mt-8 text-center text-sm text-[#696969] cursor-default">
-
-            Ainda não possui uma conta?{" "}
-
-            <span className="cursor-pointer font-semibold text-[#C19000] hover:underline">
-                Criar conta
-            </span>
-
-        </p>
     );
 }
 
