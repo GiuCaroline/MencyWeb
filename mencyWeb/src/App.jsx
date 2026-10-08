@@ -3,6 +3,9 @@ import { Nav } from "./components/nav";
 import Index from "./screens/Index";
 import Login from "./screens/Login";
 import Dashboard from "./screens/Dashboard";
+import Transacoes from "./screens/Transacoes";
+import Relatorios from "./screens/Relatorios";
+import Assistente from "./screens/Assistente";
 
 export default function App() {
     const location = useLocation();
@@ -19,6 +22,9 @@ export default function App() {
                     <Route path="/" element={<Index />} />
                     <Route path="/login" element={<Login />} />
                     <Route path="/home" element={<Dashboard />} />
+                    <Route path="/transacoes" element={<Transacoes />} />
+                    <Route path="/relatorios" element={<Relatorios />} />
+                    <Route path="/assistente" element={<Assistente />} />
                     <Route path="*" element={<p className="p-8">Página não encontrada.</p>} />
                 </Routes>
             </div>

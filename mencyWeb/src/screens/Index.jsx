@@ -1,6 +1,6 @@
 import { NavHome } from "../components/navHome";
 import { useNavigate } from "react-router-dom";
-import { ArrowDownIcon, ChartPieSliceIcon, BankIcon, TargetIcon, ChartBarIcon, ShieldCheckIcon, LockKeyIcon, ShieldIcon, RocketLaunchIcon, ArrowRightIcon } from "@phosphor-icons/react"
+import { ArrowDownIcon, ChartPieSliceIcon, BankIcon, HeadCircuitIcon, ChartBarIcon, ShieldCheckIcon, LockKeyIcon, ShieldIcon, RocketLaunchIcon, ArrowRightIcon } from "@phosphor-icons/react"
 
 export default function Index() {
     const navigate = useNavigate();
@@ -78,9 +78,9 @@ export default function Index() {
                         </div>
 
                         <div className="flex flex-col bg-[#FAFAFA] shadow-lg rounded-2xl p-5 justify-center items-center transition duration-300 hover:scale-102">
-                            <TargetIcon size={85} color="#C19000" weight="light" />
-                            <p className="text-black max-w-sm text-[20px] text-center font-semibold cursor-default mt-[5%]">Metas financeiras</p>
-                            <p className="text-[#696969] max-w-3xs text-[17px] mt-[5%] text-center cursor-default">Defina objetivos, crie metas e acompanhe seu progresso para conquistar o que realmente importa.</p>
+                            <HeadCircuitIcon size={85} color="#C19000" weight="light" />
+                            <p className="text-black max-w-sm text-[20px] text-center font-semibold cursor-default mt-[5%]">Assistente financeiro</p>
+                            <p className="text-[#696969] max-w-3xs text-[17px] mt-[5%] text-center cursor-default">Receba sugestões da inteligência artificial e descubra como organizar seus gastos com facilidade.</p>
                         </div>
 
                         <div className="flex flex-col bg-[#FAFAFA] shadow-lg rounded-2xl p-5 justify-center items-center transition duration-300 hover:scale-102">
@@ -109,7 +109,7 @@ export default function Index() {
 
                     <img
                         className="h-auto w-full lg:w-[65%] object-contain shadow-xl rounded-xl"
-                        src="/images/imageExemplo.png"
+                        src="/images/dashboard.png"
                         alt="Dashboard principal"
                     />
                 </div>

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
-import { ArrowsClockwiseIcon, BankIcon, TargetIcon, ArticleIcon, ClipboardTextIcon, GearSixIcon, SignOutIcon } from "@phosphor-icons/react";
+import { ArrowsClockwiseIcon, HeadCircuitIcon, ArticleIcon, ClipboardTextIcon, GearSixIcon, SignOutIcon } from "@phosphor-icons/react";
 
 export function Nav({ onSair }) {
     const [expandida, setExpandida] = useState(true);
@@ -8,8 +8,7 @@ export function Nav({ onSair }) {
     const itens = [
         { titulo: "Resumo", caminho: "/home", icone: ArticleIcon },
         { titulo: "Transações", caminho: "/transacoes", icone: ArrowsClockwiseIcon },
-        { titulo: "Contas", caminho: "/contas", icone: BankIcon },
-        { titulo: "Metas", caminho: "/metas", icone: TargetIcon },
+        { titulo: "Assistente IA", caminho: "/assistente", icone: HeadCircuitIcon },
         { titulo: "Relatórios", caminho: "/relatorios", icone: ClipboardTextIcon },
         { titulo: "Configurações", caminho: "/configuracoes", icone: GearSixIcon },
     ];

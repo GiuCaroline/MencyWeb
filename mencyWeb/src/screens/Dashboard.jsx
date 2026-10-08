@@ -4,16 +4,30 @@ import { Link } from "react-router-dom";
 
 export default function Dashboard() {
     const usu = [
-        {id: 1, name:'Fulano da Silva Amado de Jesus', saldTotal: 8540.00, receitas: 5200.00, despesas: 2840.00}
+        { id: 1, name: "Fulano da Silva Amado de Jesus", saldoInicial: 4500, },
     ];
 
     const transacoes = [
-        { id: 1, usuarioId: 1, descricao: "Salário", categoria: "salario", tipo: "receita", valor: 1000, data: "2026-10-01T09:03:00", },
-        { id: 2, usuarioId: 1, descricao: "Mercado", categoria: "mercado", tipo: "despesa", valor: 550.98, data: "2026-09-20T11:30:00", },
-        { id: 3, usuarioId: 1, descricao: "Internet", categoria: "internet", tipo: "despesa", valor: 40.99, data: "2026-09-05T07:00:00", },
-        { id: 4, usuarioId: 1, descricao: "Salário", categoria: "salario", tipo: "receita", valor: 1000, data: "2026-09-01T09:03:00", },
-        { id: 5, usuarioId: 1, descricao: "Mercado", categoria: "mercado", tipo: "despesa", valor: 550.98, data: "2026-08-20T11:30:00", },
-        { id: 6, usuarioId: 1, descricao: "Internet", categoria: "internet", tipo: "despesa", valor: 40.99, data: "2026-08-05T07:00:00", },
+        { id: 1, usuarioId: 1, descricao: "Salário", categoria: "salario", tipo: "receita", valor: 4800, data: "2026-08-01T09:00:00" },
+        { id: 2, usuarioId: 1, descricao: "Aluguel", categoria: "moradia", tipo: "despesa", valor: 1500, data: "2026-08-05T10:00:00" },
+        { id: 3, usuarioId: 1, descricao: "Mercado", categoria: "mercado", tipo: "despesa", valor: 800, data: "2026-08-12T11:30:00" },
+        { id: 4, usuarioId: 1, descricao: "Transporte", categoria: "transporte", tipo: "despesa", valor: 400, data: "2026-08-20T08:00:00" },
+        { id: 5, usuarioId: 1, descricao: "Cinema e passeios", categoria: "lazer", tipo: "despesa", valor: 300, data: "2026-08-23T19:00:00" },
+
+        { id: 6, usuarioId: 1, descricao: "Salário", categoria: "salario", tipo: "receita", valor: 5000, data: "2026-09-01T09:00:00" },
+        { id: 7, usuarioId: 1, descricao: "Aluguel", categoria: "moradia", tipo: "despesa", valor: 1500, data: "2026-09-05T10:00:00" },
+        { id: 8, usuarioId: 1, descricao: "Mercado", categoria: "mercado", tipo: "despesa", valor: 900, data: "2026-09-12T11:30:00" },
+        { id: 9, usuarioId: 1, descricao: "Transporte", categoria: "transporte", tipo: "despesa", valor: 450, data: "2026-09-20T08:00:00" },
+        { id: 10, usuarioId: 1, descricao: "Restaurante", categoria: "lazer", tipo: "despesa", valor: 370, data: "2026-09-25T19:00:00" },
+
+        { id: 11, usuarioId: 1, descricao: "Salário", categoria: "salario", tipo: "receita", valor: 4800, data: "2026-10-01T09:03:00" },
+        { id: 12, usuarioId: 1, descricao: "Aluguel", categoria: "moradia", tipo: "despesa", valor: 1200, data: "2026-10-02T10:00:00" },
+        { id: 13, usuarioId: 1, descricao: "Mercado", categoria: "mercado", tipo: "despesa", valor: 650, data: "2026-10-03T11:30:00" },
+        { id: 14, usuarioId: 1, descricao: "Transporte", categoria: "transporte", tipo: "despesa", valor: 450, data: "2026-10-04T08:00:00" },
+        { id: 15, usuarioId: 1, descricao: "Cinema", categoria: "lazer", tipo: "despesa", valor: 90, data: "2026-10-05T19:00:00" },
+        { id: 16, usuarioId: 1, descricao: "Freelance", categoria: "salario", tipo: "receita", valor: 400, data: "2026-10-06T09:00:00" },
+        { id: 17, usuarioId: 1, descricao: "Restaurante", categoria: "lazer", tipo: "despesa", valor: 150, data: "2026-10-07T12:30:00" },
+        { id: 18, usuarioId: 1, descricao: "Mercado", categoria: "mercado", tipo: "despesa", valor: 300, data: "2026-10-08T08:00:00" },
     ];
 
     const gastosPorCategoria = [
@@ -56,7 +70,15 @@ export default function Dashboard() {
         .filter((item) => item.tipo === "despesa")
         .reduce((total, item) => total + item.valor, 0);
 
-    const resultadoMes = receitasMes - despesasMes;
+    const saldoAnterior = transacoesUsuario
+        .filter((item) => item.data.slice(0, 7) < mesSelecionado)
+        .reduce(
+            (saldo, item) =>
+                saldo + (item.tipo === "receita" ? item.valor : -item.valor),
+            usu[0].saldoInicial
+        );
+
+    const saldoTotal = saldoAnterior + receitasMes - despesasMes;
 
     const gastosAgrupados = transacoesMes
         .filter((item) => item.tipo === "despesa")
@@ -118,7 +140,7 @@ export default function Dashboard() {
                             <div>
                                 <p className="text-[16px]">Saldo total</p>
                                 <p id="saldo-total" className="font-bold text-2xl">
-                                    {mostrarValor ? formatarMoeda(resultadoMes) : "R$ ••••••"}
+                                    {mostrarValor ? formatarMoeda(saldoTotal) : "R$ ••••••"}
                                 </p>
                             </div>
                             <button
