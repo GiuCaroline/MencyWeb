@@ -1,18 +1,7 @@
 import { useState } from "react";
-import {
-    EnvelopeSimpleIcon,
-    LockKeyIcon,
-    EyeIcon,
-    ArrowRightIcon,
-    CheckCircleIcon,
-    ChartPieSliceIcon,
-    ShieldCheckIcon,
-    TrendUpIcon,
-} from "@phosphor-icons/react";
+import { EnvelopeSimpleIcon, LockKeyIcon, EyeIcon, ArrowRightIcon, ChartPieSliceIcon, ShieldCheckIcon, TrendUpIcon, EyeSlashIcon } from "@phosphor-icons/react";
 
 export default function Login() {
-    const [design, setDesign] = useState(2);
-
     const [email, setEmail] = useState("");
     const [senha, setSenha] = useState("");
 
@@ -51,7 +40,7 @@ export default function Login() {
                         </h1>
                         <p className="mt-3 text-[#696969] cursor-default">
                             Entre na sua conta e continue cuidando da sua vida
-                            financeira.
+                            financeira
                         </p>
                         <form
                             onSubmit={handleSubmit}
@@ -95,11 +84,11 @@ export default function Login() {
                         <h2 className="text-5xl font-semibold leading-tight cursor-default">
                             Organize hoje.
                             <br />
-                            Conquiste amanhã.
+                            Conquiste amanhã
                         </h2>
                         <p className="mt-6 max-w-md text-lg leading-relaxed text-white/80 cursor-default">
                             Tenha receitas, despesas, contas e metas financeiras
-                            organizadas em um só lugar.
+                            organizadas em um só lugar
                         </p>
                         <div className="mt-10 grid grid-cols-2 gap-4">
                             <MiniCard
@@ -140,7 +129,7 @@ function InputEmail({ email, setEmail }) {
 
             <div className="flex items-center gap-3 rounded-xl border border-[#E2E2E2] bg-[#FAFAFA] px-4 transition focus-within:border-[#C19000] focus-within:bg-white">
                 <EnvelopeSimpleIcon
-                    size={20}
+                    size={25}
                     className="text-[#999]"
                 />
 
@@ -159,36 +148,48 @@ function InputEmail({ email, setEmail }) {
 }
 
 function InputSenha({ senha, setSenha }) {
+    const [mostrarSenha, setMostrarSenha] = useState(false);
+
     return (
-        <label>
-            <span className="mb-2 block text-sm font-medium text-[#333] cursor-default">
+        <div>
+            <label
+                htmlFor="senha"
+                className="mb-2 block text-sm font-medium text-[#333] cursor-default"
+            >
                 Senha
-            </span>
+            </label>
 
             <div className="flex items-center gap-3 rounded-xl border border-[#E2E2E2] bg-[#FAFAFA] px-4 transition focus-within:border-[#C19000] focus-within:bg-white">
-
                 <LockKeyIcon
-                    size={20}
-                    className="text-[#999]"
+                    size={25}
+                    className="shrink-0 text-[#999]"
                 />
 
                 <input
-                    type="password"
+                    id="senha"
+                    type={mostrarSenha ? "text" : "password"}
                     value={senha}
-                    onChange={(e) =>
-                        setSenha(e.target.value)
-                    }
+                    onChange={(e) => setSenha(e.target.value)}
+                    autoComplete="current-password"
                     placeholder="Sua senha"
-                    className="w-full bg-transparent py-4 outline-none placeholder:text-[#AAAAAA]"
+                    className="min-w-0 flex-1 bg-transparent py-4 outline-none placeholder:text-[#AAAAAA]"
                 />
 
-                <EyeIcon
-                    size={20}
-                    className="cursor-pointer text-[#999]"
-                />
-
+                <button
+                    type="button"
+                    onClick={() => setMostrarSenha((atual) => !atual)}
+                    aria-label={mostrarSenha ? "Ocultar senha" : "Mostrar senha"}
+                    aria-controls="senha"
+                    className="flex shrink-0 cursor-pointer items-center justify-center rounded p-1 text-[#999] hover:text-[#C19000] focus-visible:outline-2 focus-visible:outline-[#C19000]"
+                >
+                    {mostrarSenha ? (
+                        <EyeSlashIcon size={28} />
+                    ) : (
+                        <EyeIcon size={28} />
+                    )}
+                </button>
             </div>
-        </label>
+        </div>
     );
 }
 
