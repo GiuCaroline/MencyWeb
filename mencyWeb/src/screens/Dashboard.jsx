@@ -45,9 +45,9 @@ export default function Dashboard() {
         internet: { nome: "Internet", cor: "#C19000" },
     };
     
-    const [mostrarValor, setMostrarValor] = useState(false);
-    const [mostrarReceitas, setMostrarReceitas] = useState(false);
-    const [mostrarDespesas, setMostrarDespesas] = useState(false);
+    const [mostrarValor, setMostrarValor] = useState(true);
+    const [mostrarReceitas, setMostrarReceitas] = useState(true);
+    const [mostrarDespesas, setMostrarDespesas] = useState(true);
 
     const [meses] = useState(gerarUltimosMeses);
     const [mesSelecionado, setMesSelecionado] = useState(
@@ -108,7 +108,7 @@ export default function Dashboard() {
                 <div className="flex flex-row justify-between items-center">
                     <div>
                         <h1 className="text-3xl font-medium">Olá, {primeiroNome(usu[0].name)}!</h1>
-                        <p className="mt-1 text-[18px]">Aqui está o resumo da sua vida financeira</p>
+                        <p className="mt-1 text-[18px] text-[#696969]">Aqui está o resumo da sua vida financeira</p>
                     </div>
                     <div className="relative shrink-0">
                         <select
@@ -136,7 +136,7 @@ export default function Dashboard() {
 
                 <section className="flex flex-col mt-[3%] justify-center items-center">
                     <div className="flex flex-row gap-4 items-center justify-center w-full">
-                        <div className="w-[50%] bg-[#FFFFFF] shadow-xl rounded-3xl py-6 px-5 flex flex-row justify-between items-center">
+                        <div className="w-[50%] bg-[#FFFFFF] shadow-xl rounded-3xl p-6 flex flex-row justify-between items-center">
                             <div>
                                 <p className="text-[16px]">Saldo total</p>
                                 <p id="saldo-total" className="font-bold text-2xl">
@@ -158,7 +158,7 @@ export default function Dashboard() {
                             </button>
                         </div>
 
-                        <div className="w-[30%] bg-[#FFFFFF] shadow-xl rounded-3xl py-6 px-5 flex flex-row justify-between items-center">
+                        <div className="w-[30%] bg-[#FFFFFF] shadow-xl rounded-3xl p-6 flex flex-row justify-between items-center">
                             <div>
                                 <p className="text-[16px]">Receitas</p>
                                 <p id="receitas" className="font-bold text-2xl text-[#006A1D]">
@@ -180,7 +180,7 @@ export default function Dashboard() {
                             </button>
                         </div>
 
-                        <div className="w-[30%] bg-[#FFFFFF] shadow-xl rounded-3xl py-6 px-5 flex flex-row justify-between items-center">
+                        <div className="w-[30%] bg-[#FFFFFF] shadow-xl rounded-3xl p-6 flex flex-row justify-between items-center">
                             <div>
                                 <p className="text-[16px]">Despesas</p>
                                 <p id="despesas" className="font-bold text-2xl text-[#A4000D]">
@@ -204,7 +204,7 @@ export default function Dashboard() {
                     </div>
 
                     <div className="mt-[2%] grid w-full grid-cols-1 items-stretch gap-4 xl:grid-cols-[minmax(0,1.7fr)_minmax(0,1fr)]">
-                        <div className="flex min-w-0 flex-col rounded-3xl bg-white px-5 py-6 shadow-xl">
+                        <div className="flex min-w-0 flex-col rounded-3xl bg-white p-6 shadow-xl">
                             <h2 className="text-[18px]">
                                 Gastos por categoria
                             </h2>
@@ -376,7 +376,7 @@ function UltimasTransacoes({ dados }) {
     };
 
     return (
-        <div className="flex w-full min-w-0 flex-col rounded-3xl bg-white px-6 py-6 shadow-xl">
+        <div className="flex w-full min-w-0 flex-col rounded-3xl bg-white p-6 shadow-xl">
             <h2 className="text-[18px]">
                 Últimas transações
             </h2>
