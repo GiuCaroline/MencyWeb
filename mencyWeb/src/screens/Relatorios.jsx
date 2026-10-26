@@ -27,6 +27,11 @@ export default function Relatorios() {
 
     const usuarioId = 1;
 
+    const [mostrarValores] = useState(() => {
+        const salvo = localStorage.getItem("mency_mostrar_valores");
+        return salvo === null ? true : salvo === "true";
+    });
+
     const [meses] = useState(gerarMeses);
     const [mesSelecionado, setMesSelecionado] = useState(
         () => gerarMeses()[0].valor
@@ -116,12 +121,14 @@ export default function Relatorios() {
                     titulo="Receitas"
                     valor={receitas}
                     cor="text-[#006A1D]"
+                    mostrarValores={mostrarValores}
                 />
 
                 <CardRelatorio
                     titulo="Despesas"
                     valor={despesas}
                     cor="text-[#A4000D]"
+                    mostrarValores={mostrarValores}
                 />
 
                 <CardRelatorio
@@ -132,6 +139,7 @@ export default function Relatorios() {
                             ? "text-[#C19000]"
                             : "text-[#A4000D]"
                     }
+                    mostrarValores={mostrarValores}
                 />
             </section>
 
@@ -162,7 +170,7 @@ export default function Relatorios() {
                                     </span>
 
                                     <span className="text-sm font-semibold">
-                                        {formatarMoeda(item.valor)}
+                                        {mostrarValores ? formatarMoeda(item.valor) : "••••••"}
                                         <span className="ml-2 font-normal text-[#696969]">
                                             ({item.percentual.toFixed(1).replace(".", ",")}%)
                                         </span>
@@ -254,7 +262,7 @@ export default function Relatorios() {
                                         </div>
 
                                         <span className="w-28 shrink-0 text-right text-xs font-medium">
-                                            {formatarMoeda(item.valor)}
+                                            {mostrarValores ? formatarMoeda(item.valor) : "••••••"}
                                         </span>
                                     </div>
                                 ))}
@@ -268,9 +276,10 @@ export default function Relatorios() {
                 <GraficoMovimentacoes
                     receitas={receitas}
                     despesas={despesas}
+                    mostrarValores={mostrarValores}
                 />
 
-                <GraficoResultados dados={comparacao} />
+                <GraficoResultados dados={comparacao} mostrarValores={mostrarValores} />
             </div>
 
             <section className="mt-6 overflow-hidden rounded-3xl bg-white shadow-xl">
@@ -316,11 +325,11 @@ export default function Relatorios() {
                                         </td>
 
                                         <td className="px-6 py-4 text-right text-[#006A1D]">
-                                            {formatarMoeda(mes.receitas)}
+                                            {mostrarValores ? formatarMoeda(mes.receitas) : "••••••"}
                                         </td>
 
                                         <td className="px-6 py-4 text-right text-[#A4000D]">
-                                            {formatarMoeda(mes.despesas)}
+                                            {mostrarValores ? formatarMoeda(mes.despesas) : "••••••"}
                                         </td>
 
                                         <td
@@ -330,7 +339,7 @@ export default function Relatorios() {
                                                     : "text-[#A4000D]"
                                             }`}
                                         >
-                                            {formatarMoeda(resultadoMes)}
+                                            {mostrarValores ? formatarMoeda(resultadoMes) : "••••••"}
                                         </td>
                                     </tr>
                                 );
@@ -387,7 +396,7 @@ function somarTipo(registros, tipo) {
 }
 
 
-function CardRelatorio({ titulo, valor, cor }) {
+function CardRelatorio({ titulo, valor, cor, mostrarValores }) {
     return (
         <div className="min-w-0 rounded-3xl bg-white p-6 shadow-xl">
             <p className="text-[16px] text-[#696969]">
@@ -395,13 +404,13 @@ function CardRelatorio({ titulo, valor, cor }) {
             </p>
 
             <p className={`mt-2 text-2xl font-bold ${cor}`}>
-                {formatarMoeda(valor)}
+                {mostrarValores ? formatarMoeda(valor) : "••••••"}
             </p>
         </div>
     );
 }
 
-function GraficoMovimentacoes({ receitas, despesas }) {
+function GraficoMovimentacoes({ receitas, despesas, mostrarValores }) {
     const total = receitas + despesas;
     const circunferencia = 2 * Math.PI * 75;
 
@@ -431,7 +440,8 @@ function GraficoMovimentacoes({ receitas, despesas }) {
                             viewBox="0 0 220 220"
                             className="h-full w-full"
                             role="img"
-                            aria-label={`Receitas: ${formatarMoeda(receitas)}. Despesas: ${formatarMoeda(despesas)}.`}
+                            aria-label={ mostrarValores ? `Receitas: ${formatarMoeda(receitas)}. Despesas: ${formatarMoeda(despesas)}.` 
+                            : "Gráfico de receitas e despesas com valores ocultos." }
                         >
                             <g transform="rotate(-90 110 110)">
                                 {partes.map((item, indice) => {
@@ -455,7 +465,7 @@ function GraficoMovimentacoes({ receitas, despesas }) {
                                             strokeDashoffset={-deslocamento}
                                         >
                                             <title>
-                                                {item.nome}: {formatarMoeda(item.valor)}
+                                                {item.nome}: {mostrarValores ? formatarMoeda(item.valor) : "valor oculto"}
                                             </title>
                                         </circle>
                                     );
@@ -472,7 +482,7 @@ function GraficoMovimentacoes({ receitas, despesas }) {
                             </span>
 
                             <span className="mt-1 text-lg font-semibold">
-                                {formatarMoeda(total)}
+                                {mostrarValores ? formatarMoeda(total) : "••••••"}
                             </span>
                         </div>
                     </div>
@@ -493,7 +503,7 @@ function GraficoMovimentacoes({ receitas, despesas }) {
                                 </div>
 
                                 <p className="mt-1 font-semibold">
-                                    {formatarMoeda(item.valor)}
+                                    {mostrarValores ? formatarMoeda(item.valor) : "••••••"}
                                 </p>
 
                                 <p className="text-xs text-[#696969]">
@@ -510,7 +520,7 @@ function GraficoMovimentacoes({ receitas, despesas }) {
     );
 }
 
-function GraficoResultados({ dados }) {
+function GraficoResultados({ dados, mostrarValores }) {
     const resultados = dados.map((mes) => ({
         ...mes,
         resultado: mes.receitas - mes.despesas,
@@ -538,9 +548,10 @@ function GraficoResultados({ dados }) {
                 viewBox="0 0 480 245"
                 className="mt-6 w-full"
                 role="img"
-                aria-label={resultados
+                aria-label={  mostrarValores
+                ? resultados
                     .map((mes) => `${mes.titulo}: ${formatarMoeda(mes.resultado)}`)
-                    .join(". ")}
+                    .join(". ") : "Gráfico da evolução dos resultados com valores ocultos." }
             >
                 <line
                     x1="20"
@@ -573,7 +584,7 @@ function GraficoResultados({ dados }) {
                                 }
                             >
                                 <title>
-                                    {mes.titulo}: {formatarMoeda(mes.resultado)}
+                                    {mes.titulo}: {mostrarValores ? formatarMoeda(mes.resultado) : "valor oculto"}
                                 </title>
                             </rect>
 
@@ -589,7 +600,7 @@ function GraficoResultados({ dados }) {
                                 fontWeight="600"
                                 fill="#333"
                             >
-                                {formatarMoeda(mes.resultado)}
+                                {mostrarValores ? formatarMoeda(mes.resultado) : "••••••"}
                             </text>
 
                             <text

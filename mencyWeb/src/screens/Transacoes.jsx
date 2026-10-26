@@ -33,6 +33,10 @@ export default function Transacoes() {
     const [tipo, setTipo] = useState("todos");
     const [paginaAtual, setPaginaAtual] = useState(1);
     const registrosPorPagina = 6;
+    const [mostrarValores] = useState(() => {
+        const salvo = localStorage.getItem("mency_mostrar_valores");
+        return salvo === null ? true : salvo === "true";
+    });
 
     const registrosUsuario = transacoes.filter(
         (item) => item.usuarioId === usuarioId
@@ -108,18 +112,21 @@ export default function Transacoes() {
                     titulo="Receitas"
                     valor={receitas}
                     cor="text-[#006A1D]"
+                    mostrarValores={mostrarValores}
                 />
 
                 <CardResumo
                     titulo="Despesas"
                     valor={despesas}
                     cor="text-[#A4000D]"
+                    mostrarValores={mostrarValores}
                 />
 
                 <CardResumo
                     titulo="Resultado"
                     valor={receitas - despesas}
                     cor="text-[#C19000]"
+                    mostrarValores={mostrarValores}
                 />
             </section>
 
@@ -279,8 +286,12 @@ export default function Transacoes() {
                                                     : "text-[#A4000D]"
                                             }`}
                                         >
-                                            {receita ? "+" : "−"}
-                                            {formatarMoeda(item.valor)}
+                                            {mostrarValores ? (
+                                                <>
+                                                    {receita ? "+" : "−"}
+                                                    {formatarMoeda(item.valor)}
+                                                </>
+                                            ) : ( "••••••" )}
                                         </td>
                                     </tr>
                                 );
@@ -343,7 +354,7 @@ export default function Transacoes() {
     );
 }
 
-function CardResumo({ titulo, valor, cor }) {
+function CardResumo({ titulo, valor, cor, mostrarValores }) {
     return (
         <div className="min-w-0 rounded-3xl bg-white p-6 shadow-xl">
             <p className="text-[16px] text-[#696969]">
@@ -351,7 +362,7 @@ function CardResumo({ titulo, valor, cor }) {
             </p>
 
             <p className={`mt-2 text-2xl font-bold ${cor}`}>
-                {formatarMoeda(valor)}
+                {mostrarValores ? formatarMoeda(valor) : "••••••"}
             </p>
         </div>
     );

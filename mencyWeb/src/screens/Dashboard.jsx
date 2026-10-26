@@ -45,9 +45,20 @@ export default function Dashboard() {
         internet: { nome: "Internet", cor: "#C19000" },
     };
     
-    const [mostrarValor, setMostrarValor] = useState(true);
-    const [mostrarReceitas, setMostrarReceitas] = useState(true);
-    const [mostrarDespesas, setMostrarDespesas] = useState(true);
+    const [mostrarValor, setMostrarValor] = useState(() => {
+        const salvo = localStorage.getItem("mency_mostrar_valores");
+        return salvo === null ? true : salvo === "true";
+    });
+
+    const [mostrarReceitas, setMostrarReceitas] = useState(() => {
+        const salvo = localStorage.getItem("mency_mostrar_valores");
+        return salvo === null ? true : salvo === "true";
+    });
+
+    const [mostrarDespesas, setMostrarDespesas] = useState(() => {
+        const salvo = localStorage.getItem("mency_mostrar_valores");
+        return salvo === null ? true : salvo === "true";
+    });
 
     const [meses] = useState(gerarUltimosMeses);
     const [mesSelecionado, setMesSelecionado] = useState(
@@ -210,11 +221,11 @@ export default function Dashboard() {
                             </h2>
 
                             <div className="flex flex-1 items-center justify-center">
-                                <GraficoGastos dados={gastosUsuario} />
+                                <GraficoGastos dados={gastosUsuario} mostrarValores={mostrarValor} />
                             </div>
                         </div>
 
-                        <UltimasTransacoes dados={ultimasTransacoes} />
+                        <UltimasTransacoes dados={ultimasTransacoes} mostrarValores={mostrarValor} />
                     </div>
                 </section>
             </main>
@@ -250,7 +261,7 @@ function formatarDataTransacao(data) {
     return `${diaMes}, ${horario}`;
 }
 
-function GraficoGastos({ dados }) {
+function GraficoGastos({ dados, mostrarValores }) {
     const [categoriaAtiva, setCategoriaAtiva] = useState(null);
 
     const total = dados.reduce((soma, item) => soma + item.valor, 0);
@@ -316,7 +327,7 @@ function GraficoGastos({ dados }) {
                                     }}
                                 >
                                     <title>
-                                        {item.categoria}: {formatarMoeda(item.valor)}
+                                        {item.categoria}: {mostrarValores ? formatarMoeda(item.valor) : "valor oculto"}
                                     </title>
                                 </circle>
                             );
@@ -357,7 +368,7 @@ function GraficoGastos({ dados }) {
                             </span>
 
                             <span className="shrink-0 text-[16px] font-semibold">
-                                {formatarMoeda(item.valor)}
+                                {mostrarValores ? formatarMoeda(item.valor) : "••••••"}
                             </span>
                         </button>
                     </li>
@@ -367,7 +378,7 @@ function GraficoGastos({ dados }) {
     );
 }
 
-function UltimasTransacoes({ dados }) {
+function UltimasTransacoes({ dados, mostrarValores }) {
 
     const iconesTransacoes = {
         salario: CurrencyDollarIcon,
@@ -425,8 +436,7 @@ function UltimasTransacoes({ dados }) {
                                         : "text-[#A4000D]"
                                 }`}
                             >
-                                {receita ? "+" : "−"}
-                                {formatarMoeda(transacao.valor)}
+                                { mostrarValores ? `${receita ? "+" : "−" }${ formatarMoeda(transacao.valor)}` : "••••••" }
                             </span>
                         </li>
                     );
