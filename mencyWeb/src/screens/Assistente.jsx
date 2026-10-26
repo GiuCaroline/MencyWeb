@@ -125,7 +125,7 @@ export default function Assistente() {
                     />
 
                     <div className="flex items-center justify-between border-t border-[#F0F0F0] pt-3">
-                        <p className="text-xs text-[#999]">
+                        <p className="text-xs text-[#C19000] cursor-default">
                             O que você gostaria de saber?
                         </p>
 
