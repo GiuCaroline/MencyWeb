@@ -86,14 +86,14 @@ export default function Relatorios() {
     );
 
     return (
-        <main className="min-h-screen min-w-0 bg-[#FAFAFA] px-6 py-8 font-poppins lg:px-10">
+        <main className="min-h-screen min-w-0 bg-[#FAFAFA] dark:bg-[#121212] px-6 py-8 font-poppins lg:px-10">
             <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-center">
                 <div>
                     <h1 className="text-3xl font-medium">
                         Relatórios
                     </h1>
 
-                    <p className="mt-1 text-[18px] text-[#696969]">
+                    <p className="mt-1 text-[18px] text-[#696969] dark:text-[#c0c0c0]">
                         Entenda seus gastos e acompanhe seus resultados
                     </p>
                 </div>
@@ -102,7 +102,7 @@ export default function Relatorios() {
                     value={mesSelecionado}
                     onChange={(e) => setMesSelecionado(e.target.value)}
                     aria-label="Selecionar mês do relatório"
-                    className="cursor-pointer rounded-xl border border-[#E2E2E2] bg-white px-4 py-3 outline-none focus:border-[#C19000]"
+                    className="cursor-pointer rounded-xl border border-[#E2E2E2] dark:border-[#212124] bg-white dark:bg-[#212124] px-4 py-3 outline-none focus:border-[#C19000]"
                 >
                     {meses.map((mes) => (
                         <option key={mes.valor} value={mes.valor}>
@@ -144,7 +144,7 @@ export default function Relatorios() {
             </section>
 
             <div className="mt-6 grid grid-cols-1 items-stretch gap-6 xl:grid-cols-2">
-                <section className="min-w-0 rounded-3xl bg-white p-6 shadow-xl">
+                <section className="min-w-0 rounded-3xl bg-white dark:bg-[#212124] p-6 shadow-xl">
                     <h2 className="text-[18px] font-medium">
                         Gastos por categoria
                     </h2>
@@ -178,7 +178,7 @@ export default function Relatorios() {
                                 </div>
 
                                 <div
-                                    className="mt-3 h-3 overflow-hidden rounded-full bg-[#F0F0F0]"
+                                    className="mt-3 h-3 overflow-hidden rounded-full bg-[#F0F0F0] dark:bg-[#2c2c30]"
                                     aria-hidden="true"
                                 >
                                     <div
@@ -200,7 +200,7 @@ export default function Relatorios() {
                     )}
                 </section>
 
-                <section className="min-w-0 rounded-3xl bg-white p-6 shadow-xl">
+                <section className="min-w-0 rounded-3xl bg-white dark:bg-[#212124] p-6 shadow-xl">
                     <h2 className="text-[18px] font-medium">
                         Receitas e despesas
                     </h2>
@@ -249,7 +249,7 @@ export default function Relatorios() {
                                         </span>
 
                                         <div
-                                            className="h-4 min-w-0 flex-1 overflow-hidden rounded-full bg-[#F0F0F0]"
+                                            className="h-4 min-w-0 flex-1 overflow-hidden rounded-full bg-[#F0F0F0] dark:bg-[#2c2c30]"
                                             aria-hidden="true"
                                         >
                                             <div
@@ -398,7 +398,7 @@ function somarTipo(registros, tipo) {
 
 function CardRelatorio({ titulo, valor, cor, mostrarValores }) {
     return (
-        <div className="min-w-0 rounded-3xl bg-white p-6 shadow-xl">
+        <div className="min-w-0 rounded-3xl bg-white dark:bg-[#212124] p-6 shadow-xl">
             <p className="text-[16px] text-[#696969]">
                 {titulo}
             </p>
@@ -420,7 +420,7 @@ function GraficoMovimentacoes({ receitas, despesas, mostrarValores }) {
     ];
 
     return (
-        <section className="min-w-0 rounded-3xl bg-white p-6 shadow-xl">
+        <section className="min-w-0 rounded-3xl bg-white dark:bg-[#212124] p-6 shadow-xl">
             <h2 className="text-[18px] font-medium">
                 Distribuição das movimentações
             </h2>
@@ -535,7 +535,7 @@ function GraficoResultados({ dados, mostrarValores }) {
     const linhaZero = y(0);
 
     return (
-        <section className="min-w-0 rounded-3xl bg-white p-6 shadow-xl">
+        <section className="min-w-0 rounded-3xl bg-white dark:bg-[#212124] p-6 shadow-xl">
             <h2 className="text-[18px] font-medium">
                 Evolução do resultado
             </h2>

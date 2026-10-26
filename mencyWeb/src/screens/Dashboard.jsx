@@ -114,12 +114,12 @@ export default function Dashboard() {
         .slice(0, 3);
 
     return(
-        <div className="flex min-h-screen bg-[#FAFAFA] font-poppins">
+        <div className="flex min-h-screen bg-[#FAFAFA] dark:bg-[#121212] font-poppins">
             <main className="flex-1 py-8 px-10">
                 <div className="flex flex-row justify-between items-center">
                     <div>
                         <h1 className="text-3xl font-medium">Olá, {primeiroNome(usu[0].name)}!</h1>
-                        <p className="mt-1 text-[18px] text-[#696969]">Aqui está o resumo da sua vida financeira</p>
+                        <p className="mt-1 text-[18px] text-[#696969] dark:text-[#c0c0c0]">Aqui está o resumo da sua vida financeira</p>
                     </div>
                     <div className="relative shrink-0">
                         <select
@@ -127,7 +127,7 @@ export default function Dashboard() {
                             onChange={(e) => setMesSelecionado(e.target.value)}
                             aria-label="Selecionar mês do resumo"
                             className="appearance-none cursor-pointer rounded-xl border-2
-                                border-black bg-white py-2 pl-4 pr-10
+                                border-black dark:border-white bg-white dark:bg-[#212124] py-2 pl-4 pr-10
                                 outline-none focus:border-[#C19000]"
                         >
                             {meses.map((mes) => (
@@ -147,7 +147,7 @@ export default function Dashboard() {
 
                 <section className="flex flex-col mt-[3%] justify-center items-center">
                     <div className="flex flex-row gap-4 items-center justify-center w-full">
-                        <div className="w-[50%] bg-[#FFFFFF] shadow-xl rounded-3xl p-6 flex flex-row justify-between items-center">
+                        <div className="w-[50%] bg-[#FFFFFF] dark:bg-[#212124] shadow-xl rounded-3xl p-6 flex flex-row justify-between items-center">
                             <div>
                                 <p className="text-[16px]">Saldo total</p>
                                 <p id="saldo-total" className="font-bold text-2xl">
@@ -159,7 +159,7 @@ export default function Dashboard() {
                                 onClick={() => setMostrarValor((atual) => !atual)}
                                 aria-label={mostrarValor ? "Ocultar valor" : "Mostrar valor"}
                                 aria-controls="valor"
-                                className="flex shrink-0 cursor-pointer items-center justify-center rounded p-1 text-black hover:text-[#C19000] focus-visible:outline-2 focus-visible:outline-[#C19000]"
+                                className="flex shrink-0 cursor-pointer items-center justify-center rounded p-1 text-black dark:text-white hover:text-[#C19000] focus-visible:outline-2 focus-visible:outline-[#C19000]"
                             >
                                 {mostrarValor ? (
                                     <EyeIcon size={27} />
@@ -169,7 +169,7 @@ export default function Dashboard() {
                             </button>
                         </div>
 
-                        <div className="w-[30%] bg-[#FFFFFF] shadow-xl rounded-3xl p-6 flex flex-row justify-between items-center">
+                        <div className="w-[30%] bg-[#FFFFFF] dark:bg-[#212124] shadow-xl rounded-3xl p-6 flex flex-row justify-between items-center">
                             <div>
                                 <p className="text-[16px]">Receitas</p>
                                 <p id="receitas" className="font-bold text-2xl text-[#006A1D]">
@@ -181,7 +181,7 @@ export default function Dashboard() {
                                 onClick={() => setMostrarReceitas((atual) => !atual)}
                                 aria-label={mostrarReceitas ? "Ocultar valor" : "Mostrar valor"}
                                 aria-controls="valor"
-                                className="flex shrink-0 cursor-pointer items-center justify-center rounded p-1 text-black hover:text-[#C19000] focus-visible:outline-2 focus-visible:outline-[#C19000]"
+                                className="flex shrink-0 cursor-pointer items-center justify-center rounded p-1 text-black dark:text-white hover:text-[#C19000] focus-visible:outline-2 focus-visible:outline-[#C19000]"
                             >
                                 {mostrarReceitas ? (
                                     <EyeIcon size={27} />
@@ -191,7 +191,7 @@ export default function Dashboard() {
                             </button>
                         </div>
 
-                        <div className="w-[30%] bg-[#FFFFFF] shadow-xl rounded-3xl p-6 flex flex-row justify-between items-center">
+                        <div className="w-[30%] bg-[#FFFFFF] dark:bg-[#212124] shadow-xl rounded-3xl p-6 flex flex-row justify-between items-center">
                             <div>
                                 <p className="text-[16px]">Despesas</p>
                                 <p id="despesas" className="font-bold text-2xl text-[#A4000D]">
@@ -203,7 +203,7 @@ export default function Dashboard() {
                                 onClick={() => setMostrarDespesas((atual) => !atual)}
                                 aria-label={mostrarDespesas ? "Ocultar valor" : "Mostrar valor"}
                                 aria-controls="valor"
-                                className="flex shrink-0 cursor-pointer items-center justify-center rounded p-1 text-black hover:text-[#C19000] focus-visible:outline-2 focus-visible:outline-[#C19000]"
+                                className="flex shrink-0 cursor-pointer items-center justify-center rounded p-1 text-black dark:text-white hover:text-[#C19000] focus-visible:outline-2 focus-visible:outline-[#C19000]"
                             >
                                 {mostrarDespesas ? (
                                     <EyeIcon size={27} />
@@ -215,7 +215,7 @@ export default function Dashboard() {
                     </div>
 
                     <div className="mt-[2%] grid w-full grid-cols-1 items-stretch gap-4 xl:grid-cols-[minmax(0,1.7fr)_minmax(0,1fr)]">
-                        <div className="flex min-w-0 flex-col rounded-3xl bg-white p-6 shadow-xl">
+                        <div className="flex min-w-0 flex-col rounded-3xl bg-white dark:bg-[#212124] p-6 shadow-xl">
                             <h2 className="text-[18px]">
                                 Gastos por categoria
                             </h2>
@@ -362,7 +362,7 @@ function GraficoGastos({ dados, mostrarValores }) {
                                     aria-hidden="true"
                                 />
 
-                                <span className="text-left text-[16px] text-[#444]">
+                                <span className="text-left text-[16px] text-[#444] dark:text-[#c0c0c0]">
                                     {item.categoria}
                                 </span>
                             </span>
@@ -387,7 +387,7 @@ function UltimasTransacoes({ dados, mostrarValores }) {
     };
 
     return (
-        <div className="flex w-full min-w-0 flex-col rounded-3xl bg-white p-6 shadow-xl">
+        <div className="flex w-full min-w-0 flex-col rounded-3xl bg-white dark:bg-[#212124] p-6 shadow-xl">
             <h2 className="text-[18px]">
                 Últimas transações
             </h2>
@@ -414,6 +414,7 @@ function UltimasTransacoes({ dados, mostrarValores }) {
                                                 ? "fill"
                                                 : "regular"
                                         }
+                                        className='text-black'
                                         aria-hidden="true"
                                     />
                                 </span>

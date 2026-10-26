@@ -16,7 +16,7 @@ export default function Login() {
 
     return (
         <main className="min-h-screen font-poppins">
-            <section className="grid min-h-screen grid-cols-1 bg-[#FAFAFA] lg:grid-cols-2">
+            <section className="grid min-h-screen grid-cols-1 bg-[#FAFAFA] dark:bg-[#121212] lg:grid-cols-2">
 
                 <div className="flex items-center justify-center px-8 py-24">
                     <div className="w-full max-w-md">
@@ -27,7 +27,7 @@ export default function Login() {
                                 className="w-14"
                             />
 
-                            <span className="text-3xl font-semibold text-[#222] cursor-default">
+                            <span className="text-3xl font-semibold text-[#222] cursor-default dark:text-white">
                                 Mency
                             </span>
                         </div>
@@ -35,10 +35,10 @@ export default function Login() {
                         <p className="mb-2 text-sm font-medium uppercase tracking-[3px] text-[#C19000] cursor-default">
                             Bem-vindo novamente
                         </p>
-                        <h1 className="text-4xl font-semibold text-[#202020] cursor-default">
+                        <h1 className="text-4xl font-semibold text-[#202020] cursor-default dark:text-white">
                             Que bom ter você de volta!
                         </h1>
-                        <p className="mt-3 text-[#696969] cursor-default">
+                        <p className="mt-3 text-[#696969] cursor-default dark:text-[#c0c0c0]">
                             Entre na sua conta e continue cuidando da sua vida
                             financeira
                         </p>
@@ -123,11 +123,11 @@ export default function Login() {
 function InputEmail({ email, setEmail }) {
     return (
         <label>
-            <span className="mb-2 block text-sm font-medium text-[#333] cursor-default">
+            <span className="mb-2 block text-sm font-medium text-[#333] cursor-default dark:text-[#c0c0c0]">
                 E-mail
             </span>
 
-            <div className="flex items-center gap-3 rounded-xl border border-[#E2E2E2] bg-[#FAFAFA] px-4 transition focus-within:border-[#C19000] focus-within:bg-white">
+            <div className="flex items-center gap-3 rounded-xl border border-[#E2E2E2] dark:border-[#212124] bg-[#FAFAFA] dark:bg-[#212124] px-4 transition focus-within:border-[#C19000]">
                 <EnvelopeSimpleIcon
                     size={25}
                     className="text-[#999]"
@@ -154,12 +154,12 @@ function InputSenha({ senha, setSenha }) {
         <div>
             <label
                 htmlFor="senha"
-                className="mb-2 block text-sm font-medium text-[#333] cursor-default"
+                className="mb-2 block text-sm font-medium text-[#333] cursor-default dark:text-[#c0c0c0]"
             >
                 Senha
             </label>
 
-            <div className="flex items-center gap-3 rounded-xl border border-[#E2E2E2] bg-[#FAFAFA] px-4 transition focus-within:border-[#C19000] focus-within:bg-white">
+            <div className="flex items-center gap-3 rounded-xl border border-[#E2E2E2] dark:border-[#212124] bg-[#FAFAFA] dark:bg-[#212124] px-4 transition focus-within:border-[#C19000]">
                 <LockKeyIcon
                     size={25}
                     className="shrink-0 text-[#999]"

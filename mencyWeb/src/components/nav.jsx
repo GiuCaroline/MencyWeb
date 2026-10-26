@@ -17,7 +17,7 @@ export function Nav({ onSair }) {
         <nav
             aria-label="Menu principal"
             className={`sticky top-0 flex h-dvh shrink-0 flex-col
-                overflow-x-hidden bg-[#FAFAFA] text-black shadow-2xl
+                overflow-x-hidden bg-[#FAFAFA] dark:bg-[#212124] text-black dark:text-white shadow-2xl
                 transition-[width] duration-300
                 ${expandida ? "w-64" : "w-[68px]"}`}
         >

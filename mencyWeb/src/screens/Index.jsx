@@ -5,7 +5,7 @@ import { ArrowDownIcon, ChartPieSliceIcon, BankIcon, HeadCircuitIcon, ChartBarIc
 export default function Index() {
     const navigate = useNavigate();
     return (
-        <main className="min-h-screen w-full bg-[#FAFAFA] font-poppins">
+        <main className="min-h-screen w-full bg-[#FAFAFA] dark:bg-[#121212] font-poppins">
             <NavHome />
 
             <section className="h-dvh w-full overflow-hidden rounded-b-3xl bg-[#C19000] pt-20 px-23 shadow-lg">
@@ -51,8 +51,8 @@ export default function Index() {
             <section className="p-8 flex flex-col justify-center items-center">
                 <div className="w-full flex flex-col justify-center items-center">
                     <p className="text-[#C19000] underline text-[35px] font-semibold cursor-default">Open Finance</p>
-                    <p className="text-black font-bold max-w-lg text-[22px] mt-[2%] text-center cursor-default">Suas contas - Seus gastos - Seu dinheiro Tudo em um só lugar.</p>
-                    <p className="text-black max-w-xl text-[18px] mt-[1%] text-center cursor-default">Conecte suas contas bancárias de forma segura e acompanhe sua vida financeira automaticamente.</p>
+                    <p className="text-black font-bold max-w-lg text-[22px] mt-[2%] text-center cursor-default dark:text-white">Suas contas - Seus gastos - Seu dinheiro Tudo em um só lugar.</p>
+                    <p className="text-black max-w-xl text-[18px] mt-[1%] text-center cursor-default dark:text-white">Conecte suas contas bancárias de forma segura e acompanhe sua vida financeira automaticamente.</p>
 
                     <a href='#comecar' className="cursor-pointer flex items-center justify-center gap-2 bg-[#C19000] text-white py-3 px-6 rounded-xl text-[18px] mt-[2%] transition duration-300 hover:scale-105">Conheça o Mency <ArrowDownIcon size={28} /></a>
 
@@ -62,46 +62,46 @@ export default function Index() {
 
                 <div className="w-full flex flex-col justify-center items-center mt-[2%]">
                     
-                    <p className="text-black max-w-sm text-[24px] text-center font-semibold cursor-default">Tudo o que você precisa para cuidar do seu dinheiro</p>
+                    <p className="text-black max-w-sm text-[24px] text-center font-semibold cursor-default dark:text-white">Tudo o que você precisa para cuidar do seu dinheiro</p>
 
                     <div className="mt-[2%] flex gap-5">
-                        <div className="flex flex-col bg-[#FAFAFA] shadow-lg rounded-2xl p-5 justify-center items-center transition duration-300 hover:scale-102">
+                        <div className="flex flex-col bg-[#FAFAFA] dark:bg-[#212124] shadow-lg rounded-2xl p-5 justify-center items-center transition duration-300 hover:scale-102">
                             <ChartPieSliceIcon size={85} color="#C19000" weight="light" />
-                            <p className="text-black max-w-sm text-[20px] text-center font-semibold cursor-default mt-[5%]">Controle de gastos</p>
+                            <p className="text-black max-w-sm text-[20px] text-center font-semibold cursor-default mt-[5%] dark:text-white">Controle de gastos</p>
                             <p className="text-[#696969] max-w-3xs text-[17px] mt-[5%] text-center cursor-default">Saiba exatamente para onde seu dinheiro está indo e categorize seus gastos automaticamente.</p>
                         </div>
 
-                        <div className="flex flex-col bg-[#FAFAFA] shadow-lg rounded-2xl p-5 justify-center items-center transition duration-300 hover:scale-102">
+                        <div className="flex flex-col bg-[#FAFAFA] dark:bg-[#212124] shadow-lg rounded-2xl p-5 justify-center items-center transition duration-300 hover:scale-102">
                             <BankIcon size={85} color="#C19000" weight="light" />
-                            <p className="text-black max-w-sm text-[20px] text-center font-semibold cursor-default mt-[5%]">Contas conectdas</p>
+                            <p className="text-black max-w-sm text-[20px] text-center font-semibold cursor-default mt-[5%] dark:text-white">Contas conectdas</p>
                             <p className="text-[#696969] max-w-3xs text-[17px] mt-[5%] text-center cursor-default">Conecte suas contas via Open Finance e tenha todas elas em um único lugar, de forma segura.</p>
                         </div>
 
-                        <div className="flex flex-col bg-[#FAFAFA] shadow-lg rounded-2xl p-5 justify-center items-center transition duration-300 hover:scale-102">
+                        <div className="flex flex-col bg-[#FAFAFA] dark:bg-[#212124] shadow-lg rounded-2xl p-5 justify-center items-center transition duration-300 hover:scale-102">
                             <HeadCircuitIcon size={85} color="#C19000" weight="light" />
-                            <p className="text-black max-w-sm text-[20px] text-center font-semibold cursor-default mt-[5%]">Assistente financeiro</p>
+                            <p className="text-black max-w-sm text-[20px] text-center font-semibold cursor-default mt-[5%] dark:text-white">Assistente financeiro</p>
                             <p className="text-[#696969] max-w-3xs text-[17px] mt-[5%] text-center cursor-default">Receba sugestões da inteligência artificial e descubra como organizar seus gastos com facilidade.</p>
                         </div>
 
-                        <div className="flex flex-col bg-[#FAFAFA] shadow-lg rounded-2xl p-5 justify-center items-center transition duration-300 hover:scale-102">
+                        <div className="flex flex-col bg-[#FAFAFA] dark:bg-[#212124] shadow-lg rounded-2xl p-5 justify-center items-center transition duration-300 hover:scale-102">
                             <ChartBarIcon size={85} color="#C19000" weight="light" />
-                            <p className="text-black max-w-sm text-[20px] text-center font-semibold cursor-default mt-[5%]">Visão financeira</p>
+                            <p className="text-black max-w-sm text-[20px] text-center font-semibold cursor-default mt-[5%] dark:text-white">Visão financeira</p>
                             <p className="text-[#696969] max-w-3xs text-[17px] mt-[5%] text-center cursor-default">Entenda sua vida financeira através de gráficos intuitivos e idicadores claros e completos.</p>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <section id='comecar' className="scroll-mt-20 w-full bg-[#F3F3F3] mt-16 py-8 px-8 lg:px-24">
+            <section id='comecar' className="scroll-mt-20 w-full bg-[#F3F3F3] dark:bg-[#212124] mt-16 py-8 px-8 lg:px-24">
                 <div className="flex flex-col lg:flex-row gap-8 justify-between items-center">
                     <div className="w-full lg:w-[30%] min-w-0">
-                        <p className="text-black max-w-xs text-[24px] font-semibold cursor-default">
+                        <p className="text-black max-w-xs text-[24px] font-semibold cursor-default dark:text-white">
                             Veja sua vida financeira de outro jeito
                         </p>
 
                         <div className="h-[3px] w-15 rounded-full bg-[#C19000] mt-4" />
 
-                        <p className="text-black max-w-xs text-[18px] mt-4 cursor-default text-base/11">
+                        <p className="text-black max-w-xs text-[18px] mt-4 cursor-default text-base/11 dark:text-white">
                             Tenha uma visão completa das suas finanças em um
                             painel simples, moderno e intuitivo.
                         </p>
@@ -175,7 +175,7 @@ export default function Index() {
                 </div>
             </section>
 
-            <section className="w-full bg-[#F3F3F3] mt-16 pb-20 py-8 px-8 lg:px-24">
+            <section className="w-full bg-[#F3F3F3] dark:bg-[#212124] mt-16 pb-20 py-8 px-8 lg:px-24">
                 <div className="flex flex-col justify-center items-center">
 
                     <p className="text-center text-[24px] font-semibold cursor-default">Seus dados em primeiro lugar</p>

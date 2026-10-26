@@ -46,7 +46,7 @@ export default function Assistente() {
     }
 
     return (
-        <main className="flex min-h-screen min-w-0 flex-1 flex-col bg-[#FAFAFA] px-5 py-6 font-poppins sm:px-8 lg:px-10">
+        <main className="flex min-h-screen min-w-0 flex-1 flex-col bg-[#FAFAFA] dark:bg-[#121212] px-5 py-6 font-poppins sm:px-8 lg:px-10">
             <header className="mb-8">
                 <div className="flex items-center gap-3">
                     <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#C19000] text-white">
@@ -54,10 +54,10 @@ export default function Assistente() {
                     </div>
 
                     <div>
-                        <h1 className="text-2xl font-medium text-[#171717] sm:text-3xl">
+                        <h1 className="text-2xl font-medium sm:text-3xl">
                             Assistente Mency
                         </h1>
-                        <p className="mt-1 text-sm text-[#777]">
+                        <p className="mt-1 text-sm text-[#777] dark:text-[#c0c0c0]">
                             Sua inteligência financeira pessoal
                         </p>
                     </div>
@@ -66,15 +66,15 @@ export default function Assistente() {
 
             <section className="mx-auto flex w-full max-w-4xl flex-1 flex-col">
                 <div className="flex flex-1 flex-col items-center justify-center py-8">
-                    <div className="mb-5 flex h-16 w-16 items-center justify-center rounded-3xl bg-[#F5EBCB] text-[#A77D00]">
+                    <div className="mb-5 flex h-16 w-16 items-center justify-center rounded-3xl bg-[#F5EBCB] dark:bg-[#212124] text-[#A77D00]">
                         <SparkleIcon size={34} weight="regular" />
                     </div>
 
-                    <h2 className="text-center text-2xl font-medium text-[#202020]">
+                    <h2 className="text-center text-2xl font-medium text-[#202020] dark:text-white">
                         Vamos cuidar do seu dinheiro?
                     </h2>
 
-                    <p className="mt-3 max-w-lg text-center text-sm leading-6 text-[#777]">
+                    <p className="mt-3 max-w-lg text-center text-sm leading-6 text-[#777] dark:text-[#c0c0c0]">
                         Tire dúvidas sobre suas finanças e encontre novas
                         formas de organizar seu dinheiro.
                     </p>
@@ -85,7 +85,7 @@ export default function Assistente() {
                                 key={titulo}
                                 type="button"
                                 onClick={() => selecionarSugestao(pergunta)}
-                                className="group flex cursor-pointer items-start gap-3 rounded-2xl border border-[#EAEAEA] bg-white p-4 text-left transition hover:border-[#C19000]/50 hover:bg-[#FFFEFA]"
+                                className="group flex cursor-pointer items-start gap-3 rounded-2xl border border-[#EAEAEA] dark:border-[#212124] bg-white dark:bg-[#212124] p-4 text-left transition hover:border-[#C19000]/50 hover:bg-[#FFFEFA] dark:hover:bg-[#2c2c30]"
                             >
                                 <Icone
                                     size={23}
@@ -94,10 +94,10 @@ export default function Assistente() {
                                 />
 
                                 <div>
-                                    <p className="text-sm font-medium text-[#292929]">
+                                    <p className="text-sm font-medium text-[#292929] dark:text-white">
                                         {titulo}
                                     </p>
-                                    <p className="mt-1 text-xs leading-5 text-[#888]">
+                                    <p className="mt-1 text-xs leading-5 text-[#888] dark:text-[#c0c0c0]">
                                         {descricao}
                                     </p>
                                 </div>
@@ -108,7 +108,7 @@ export default function Assistente() {
 
                 <form
                     onSubmit={enviarMensagem}
-                    className="sticky bottom-4 mt-6 rounded-2xl border border-[#E5E5E5] bg-white p-3 shadow-sm"
+                    className="sticky bottom-4 mt-6 rounded-2xl border border-[#E5E5E5] dark:border-[#212124] bg-white dark:bg-[#212124] p-3 shadow-sm"
                 >
                     <textarea
                         value={mensagem}
@@ -121,7 +121,7 @@ export default function Assistente() {
                         }}
                         rows={2}
                         placeholder="Pergunte algo sobre suas finanças..."
-                        className="w-full resize-none bg-transparent px-2 py-2 text-sm text-[#252525] outline-none placeholder:text-[#A0A0A0]"
+                        className="w-full resize-none bg-transparent px-2 py-2 text-sm text-[#252525] dark:text-white outline-none placeholder:text-[#A0A0A0]"
                     />
 
                     <div className="flex items-center justify-between border-t border-[#F0F0F0] pt-3">

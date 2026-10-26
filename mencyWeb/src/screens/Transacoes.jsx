@@ -95,12 +95,12 @@ export default function Transacoes() {
         );
 
     return (
-        <main className="min-h-screen min-w-0 bg-[#FAFAFA] px-6 py-8 font-poppins lg:px-10">
+        <main className="min-h-screen min-w-0 bg-[#FAFAFA] dark:bg-[#121212] px-6 py-8 font-poppins lg:px-10">
             <h1 className="text-3xl font-medium">
                 Transações
             </h1>
 
-            <p className="mt-1 text-[18px] text-[#696969]">
+            <p className="mt-1 text-[18px] text-[#696969] dark:text-[#c0c0c0]">
                 Acompanhe suas receitas e despesas em um só lugar
             </p>
 
@@ -134,7 +134,7 @@ export default function Transacoes() {
                 aria-label="Filtros de transações"
                 className="mt-8 flex flex-col gap-4 lg:flex-row"
             >
-                <div className="flex min-w-0 flex-1 items-center gap-3 rounded-xl border border-[#E2E2E2] bg-white px-4 focus-within:border-[#C19000]">
+                <div className="flex min-w-0 flex-1 items-center gap-3 rounded-xl border border-[#E2E2E2] dark:border-[#212124] bg-white dark:bg-[#212124] px-4 focus-within:border-[#C19000]">
                     <MagnifyingGlassIcon
                         size={22}
                         className="shrink-0 text-[#999]"
@@ -155,7 +155,7 @@ export default function Transacoes() {
                     value={mes}
                     onChange={(e) => {setMes(e.target.value); setPaginaAtual(1);}}
                     aria-label="Filtrar por mês"
-                    className="cursor-pointer rounded-xl border border-[#E2E2E2] bg-white px-4 py-3 outline-none focus:border-[#C19000]"
+                    className="cursor-pointer rounded-xl border border-[#E2E2E2] dark:border-[#212124] bg-white dark:bg-[#212124] px-4 py-3 outline-none focus:border-[#C19000]"
                 >
                     <option value="todos">Todos os meses</option>
 
@@ -184,7 +184,7 @@ export default function Transacoes() {
                     value={tipo}
                     onChange={(e) => {setTipo(e.target.value); setPaginaAtual(1);}}
                     aria-label="Filtrar por tipo"
-                    className="cursor-pointer rounded-xl border border-[#E2E2E2] bg-white px-4 py-3 outline-none focus:border-[#C19000]"
+                    className="cursor-pointer rounded-xl border border-[#E2E2E2] dark:border-[#212124] bg-white dark:bg-[#212124] px-4 py-3 outline-none focus:border-[#C19000]"
                 >
                     <option value="todos">Todos os tipos</option>
                     <option value="receita">Receitas</option>
@@ -192,7 +192,7 @@ export default function Transacoes() {
                 </select>
             </section>
 
-            <section className="mt-6 min-w-0 overflow-hidden rounded-3xl bg-white shadow-xl">
+            <section className="mt-6 min-w-0 overflow-hidden rounded-3xl bg-white dark:bg-[#212124] shadow-xl">
                 <div className="flex items-center justify-between gap-4 px-6 py-5">
                     <h2 className="text-[18px] font-medium">
                         Histórico de transações
@@ -208,7 +208,7 @@ export default function Transacoes() {
 
                 <div className="overflow-x-auto">
                     <table className="w-full min-w-[650px] text-left">
-                        <thead className="bg-[#F5F5F5] text-sm text-[#696969]">
+                        <thead className="bg-[#F5F5F5] dark:bg-[#2c2c30] text-sm text-[#696969]">
                             <tr>
                                 <th scope="col" className="px-6 py-4 font-medium">
                                     Descrição
@@ -339,7 +339,7 @@ export default function Transacoes() {
                                             ${
                                                 ativa
                                                     ? "border-[#C19000] bg-[#C19000] text-white"
-                                                    : "border-[#E2E2E2] bg-white text-[#696969] hover:bg-[#C19000]/10"
+                                                    : "border-[#E2E2E2] dark:border-[#121212] bg-white dark:bg-[#212124] text-[#696969] hover:bg-[#C19000]/10"
                                             }`}
                                     >
                                         {pagina}
@@ -356,7 +356,7 @@ export default function Transacoes() {
 
 function CardResumo({ titulo, valor, cor, mostrarValores }) {
     return (
-        <div className="min-w-0 rounded-3xl bg-white p-6 shadow-xl">
+        <div className="min-w-0 rounded-3xl bg-white dark:bg-[#212124] p-6 shadow-xl">
             <p className="text-[16px] text-[#696969]">
                 {titulo}
             </p>

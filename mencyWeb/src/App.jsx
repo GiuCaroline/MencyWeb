@@ -7,9 +7,33 @@ import Transacoes from "./screens/Transacoes";
 import Relatorios from "./screens/Relatorios";
 import Assistente from "./screens/Assistente";
 import Configuracoes from "./screens/Configuracoes";
+import { useEffect, useState } from "react";
 
 export default function App() {
     const location = useLocation();
+
+    const [tema, setTema] = useState(() => {
+        const temaSalvo = localStorage.getItem("mency_tema");
+
+        if (temaSalvo === "dark" || temaSalvo === "light") {
+            return temaSalvo;
+        }
+
+        const prefereDark = window.matchMedia(
+            "(prefers-color-scheme: dark)"
+        ).matches;
+
+        return prefereDark ? "dark" : "light";
+    });
+
+    useEffect(() => {
+        const raiz = document.documentElement;
+
+        raiz.classList.toggle("dark", tema === "dark");
+        raiz.style.colorScheme = tema;
+
+        localStorage.setItem("mency_tema", tema);
+    }, [tema]);
 
     const rotasSemNav = ["/", "/login"];
     const mostrarNav = !rotasSemNav.includes(location.pathname);
@@ -26,7 +50,7 @@ export default function App() {
                     <Route path="/transacoes" element={<Transacoes />} />
                     <Route path="/relatorios" element={<Relatorios />} />
                     <Route path="/assistente" element={<Assistente />} />
-                    <Route path="/configuracoes" element={<Configuracoes />} />
+                    <Route path="/configuracoes" element={<Configuracoes tema={tema} onAlterarTema={setTema}/>} />
                     <Route path="*" element={<p className="p-8">Página não encontrada.</p>} />
                 </Routes>
             </div>

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { UserCircleIcon, SlidersHorizontalIcon, ShieldCheckIcon, BellIcon, FloppyDiskIcon, EyeIcon, EyeSlashIcon } from "@phosphor-icons/react";
 
-export default function Configuracoes() {
+export default function Configuracoes( tema, onAlterarTema ) {
     const [nome, setNome] = useState("Seu nome");
     const [email, setEmail] = useState("seuemail@email.com");
     const [cpf, setCpf] = useState("111.111.111-11");
@@ -160,6 +160,18 @@ export default function Configuracoes() {
                         </p>
 
                         <div className="mt-3 divide-y divide-[#F0F0F0]">
+                            <Opcao
+                                titulo="Tema escuro"
+                                descricao={
+                                    tema === "dark"
+                                        ? "O modo escuro está ativado."
+                                        : "Usar o tema escuro no Mency."
+                                }
+                                ativo={tema === "dark"}
+                                onChange={(ativo) =>
+                                    onAlterarTema(ativo ? "dark" : "light")
+                                }
+                            />
                             <Opcao
                                 titulo="Exibir valores financeiros"
                                 descricao="Permite visualizar saldos e valores na tela."
