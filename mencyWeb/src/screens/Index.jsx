@@ -16,7 +16,7 @@ export default function Index() {
                                 <img
                                     className="w-24 lg:w-32 xl:w-40"
                                     src="/images/logobranca.png"
-                                    alt="Logo Mency"
+                                    alt="Mency — controle financeiro pessoal"
                                 />
 
                                 <div className="h-[4px] w-3/4 rounded-full bg-white" />
@@ -42,7 +42,7 @@ export default function Index() {
                         <img
                             className="block h-full w-full object-contain object-right-bottom"
                             src="/images/pessoaBanner.png"
-                            alt="Pessoa"
+                            alt="Imagem decorativa - Pessoa com laptop"
                         />
                     </div>
                 </div>

@@ -31,7 +31,7 @@ export function Nav({ onSair }) {
             >
                 <img
                     src="/images/logodourada.png"
-                    alt=""
+                    alt="Mency — controle financeiro pessoal"
                     className="h-[52px] w-[52px] max-w-none shrink-0 object-contain"
                 />
 

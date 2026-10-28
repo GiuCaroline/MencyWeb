@@ -8,6 +8,7 @@ import Relatorios from "./screens/Relatorios";
 import Assistente from "./screens/Assistente";
 import Configuracoes from "./screens/Configuracoes";
 import { useEffect, useState } from "react";
+import Acessibilidade from "../src/components/acessibilidade";
 
 export default function App() {
     const location = useLocation();
@@ -39,7 +40,8 @@ export default function App() {
     const mostrarNav = !rotasSemNav.includes(location.pathname);
 
     return (
-        <div className="flex min-h-screen bg-[#FAFAFA] font-poppins">
+        <>
+        <div className="flex min-h-screen bg-[#FAFAFA] dark:bg-[#121212] font-poppins">
             {mostrarNav && <Nav />}
 
             <div className="min-w-0 flex-1">
@@ -50,10 +52,24 @@ export default function App() {
                     <Route path="/transacoes" element={<Transacoes />} />
                     <Route path="/relatorios" element={<Relatorios />} />
                     <Route path="/assistente" element={<Assistente />} />
-                    <Route path="/configuracoes" element={<Configuracoes tema={tema} onAlterarTema={setTema}/>} />
-                    <Route path="*" element={<p className="p-8">Página não encontrada.</p>} />
+                    <Route
+                        path="/configuracoes"
+                        element={
+                            <Configuracoes
+                                tema={tema}
+                                onAlterarTema={setTema}
+                            />
+                        }
+                    />
+                    <Route
+                        path="*"
+                        element={<p className="p-8">Página não encontrada.</p>}
+                    />
                 </Routes>
             </div>
         </div>
+
+        <Acessibilidade />
+    </>
     );
 }

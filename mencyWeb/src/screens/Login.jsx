@@ -23,7 +23,7 @@ export default function Login() {
                         <div className="mb-10 flex items-center gap-3">
                             <img
                                 src="/images/logodourada.png"
-                                alt="Mency"
+                                alt="Mency — controle financeiro pessoal"
                                 className="w-14"
                             />
 
