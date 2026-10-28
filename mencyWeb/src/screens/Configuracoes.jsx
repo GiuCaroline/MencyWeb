@@ -52,14 +52,14 @@ export default function Configuracoes( tema, onAlterarTema ) {
     ];
 
     return (
-        <main className="min-h-screen min-w-0 bg-[#FAFAFA]
+        <main className="min-h-screen min-w-0 bg-[#FAFAFA] dark:bg-[#121212]
             px-5 py-8 font-poppins sm:px-8 lg:px-10">
 
             <header className="mb-8">
-                <h1 className="text-3xl font-medium text-[#171717]">
+                <h1 className="text-3xl font-medium text-[#171717] dark:text-white">
                     Configurações
                 </h1>
-                <p className="mt-2 text-sm text-[#777] sm:text-base">
+                <p className="mt-2 text-sm text-[#777] sm:text-base dark:text-[#c0c0c0]">
                     Personalize sua conta e a forma como você utiliza
                     o Mency.
                 </p>
@@ -69,9 +69,9 @@ export default function Configuracoes( tema, onAlterarTema ) {
                 xl:grid-cols-[230px_minmax(0,1fr)]">
 
                 <aside className="rounded-2xl border border-[#EAEAEA]
-                    bg-white p-3">
+                    bg-white dark:bg-[#212124] dark:border-[#212124] p-3">
                     <p className="px-3 pb-3 pt-2 text-xs font-medium
-                        uppercase tracking-wider text-[#999]">
+                        uppercase tracking-wider text-[#999] dark:text-white">
                         Minha conta
                     </p>
 
@@ -85,7 +85,7 @@ export default function Configuracoes( tema, onAlterarTema ) {
                                     transition-colors ${
                                         index === 0
                                             ? "bg-[#C19000]/10 font-medium text-[#9A7300]"
-                                            : "text-[#666] hover:bg-[#F7F7F7]"
+                                            : "text-[#666] hover:bg-[#F7F7F7] dark:text-[#c0c0c0] dark:hover:bg-[#2c2c30]"
                                     }`}
                             >
                                 <Icone size={20} weight="regular" />
@@ -100,13 +100,13 @@ export default function Configuracoes( tema, onAlterarTema ) {
                     <section
                         id="perfil"
                         className="scroll-mt-6 rounded-2xl border
-                            border-[#EAEAEA] bg-white p-5 sm:p-7"
+                            border-[#EAEAEA] bg-white dark:bg-[#212124] dark:border-[#212124] p-5 sm:p-7"
                     >
                         <div className="mb-6">
                             <h2 className="text-lg font-medium">
                                 Informações pessoais
                             </h2>
-                            <p className="mt-1 text-sm text-[#777]">
+                            <p className="mt-1 text-sm text-[#777] dark:text-[#c0c0c0]">
                                 Seus dados de identificação.
                             </p>
                         </div>
@@ -118,7 +118,7 @@ export default function Configuracoes( tema, onAlterarTema ) {
                                 <UserCircleIcon size={42} weight="light" />
                             </div>
                             <div>
-                                <p className="font-medium text-[#252525]">
+                                <p className="font-medium text-[#252525] dark:text-white">
                                     {nome || "Seu perfil"}
                                 </p>
                                 <p className="mt-1 text-sm text-[#888]">
@@ -150,16 +150,16 @@ export default function Configuracoes( tema, onAlterarTema ) {
                     <section
                         id="preferencias"
                         className="scroll-mt-6 rounded-2xl border
-                            border-[#EAEAEA] bg-white p-5 sm:p-7"
+                            border-[#EAEAEA] bg-white dark:bg-[#212124] dark:border-[#212124] p-5 sm:p-7"
                     >
                         <h2 className="text-lg font-medium">
                             Preferências
                         </h2>
-                        <p className="mt-1 text-sm text-[#777]">
+                        <p className="mt-1 text-sm text-[#777] dark:text-[#c0c0c0]">
                             Ajuste a visualização das suas informações.
                         </p>
 
-                        <div className="mt-3 divide-y divide-[#F0F0F0]">
+                        <div className="mt-3 divide-y divide-[#F0F0F0] dark:divide-[#3b3b40]">
                             <Opcao
                                 titulo="Tema escuro"
                                 descricao={
@@ -181,13 +181,13 @@ export default function Configuracoes( tema, onAlterarTema ) {
                         </div>
 
                         <div className="mt-3 flex items-center gap-3
-                            rounded-xl bg-[#FAFAFA] p-4">
+                            rounded-xl bg-[#FAFAFA] dark:bg-[#121212] p-4">
                             {mostrarValores ? (
                                 <EyeIcon size={22} className="text-[#C19000]" />
                             ) : (
                                 <EyeSlashIcon size={22} className="text-[#C19000]" />
                             )}
-                            <p className="text-sm text-[#666]">
+                            <p className="text-sm text-[#666] dark:text-white">
                                 {mostrarValores
                                     ? "Os valores estão visíveis."
                                     : "A visualização dos valores está desativada."}
@@ -198,7 +198,7 @@ export default function Configuracoes( tema, onAlterarTema ) {
                     <section
                         id="notificacoes"
                         className="scroll-mt-6 rounded-2xl border
-                            border-[#EAEAEA] bg-white p-5 sm:p-7"
+                            border-[#EAEAEA] bg-white dark:bg-[#212124] dark:border-[#212124] p-5 sm:p-7"
                     >
                         <h2 className="text-lg font-medium">
                             Notificações
@@ -207,7 +207,7 @@ export default function Configuracoes( tema, onAlterarTema ) {
                             Controle os avisos da sua experiência.
                         </p>
 
-                        <div className="mt-3 divide-y divide-[#F0F0F0]">
+                        <div className="mt-3 divide-y divide-[#F0F0F0] dark:divide-[#3b3b40]">
                             <Opcao
                                 titulo="Notificações gerais"
                                 descricao="Receber avisos e atualizações do Mency."
@@ -226,7 +226,7 @@ export default function Configuracoes( tema, onAlterarTema ) {
                     <section
                         id="seguranca"
                         className="scroll-mt-6 rounded-2xl border
-                            border-[#EAEAEA] bg-white p-5 sm:p-7"
+                            border-[#EAEAEA] bg-white dark:bg-[#212124] dark:border-[#212124] p-5 sm:p-7"
                     >
                         <h2 className="text-lg font-medium">
                             Segurança e privacidade
@@ -236,7 +236,7 @@ export default function Configuracoes( tema, onAlterarTema ) {
                         </p>
 
                         <div className="mt-5 rounded-xl border
-                            border-[#EEEEEE] p-4">
+                            border-[#EEEEEE] dark:border-[#3b3b40] p-4">
                             <div className="flex items-start gap-3">
                                 <ShieldCheckIcon
                                     size={24}
@@ -258,9 +258,9 @@ export default function Configuracoes( tema, onAlterarTema ) {
                     </section>
 
                     <div className="flex flex-col items-start justify-between
-                        gap-3 border-t border-[#E8E8E8] pt-5 sm:flex-row
+                        gap-3 border-t border-[#E8E8E8] dark:border-[#3b3b40] pt-5 sm:flex-row
                         sm:items-center">
-                        <p role="status" className="text-sm text-[#777]">
+                        <p role="status" className="text-sm text-[#777] dark:text-white">
                             {mensagem}
                         </p>
 
@@ -301,7 +301,7 @@ function Alternancia({ ativo, onChange }) {
             aria-checked={ativo}
             onClick={() => onChange(!ativo)}
             className={`relative h-6 w-11 shrink-0 rounded-full transition-colors cursor-pointer ${
-                ativo ? "bg-[#C19000]" : "bg-[#D4D4D4]"
+                ativo ? "bg-[#C19000]" : "bg-[#D4D4D4] dark:bg-[#3b3b40]"
             }`}
         >
             <span
@@ -316,7 +316,7 @@ function Alternancia({ ativo, onChange }) {
 function Campo({ label, value, onChange, type = "text" }) {
     return (
         <label className="flex flex-col gap-2">
-            <span className="text-sm font-medium text-[#444]">
+            <span className="text-sm font-medium text-[#444] dark:text-[#c0c0c0]">
                 {label}
             </span>
 
@@ -324,7 +324,7 @@ function Campo({ label, value, onChange, type = "text" }) {
                 type={type}
                 value={value}
                 onChange={(e) => onChange(e.target.value)}
-                className="w-full rounded-xl border border-[#E5E5E5] bg-white px-4 py-3 text-sm outline-none transition focus:border-[#C19000] focus:ring-2 focus:ring-[#C19000]/10"
+                className="w-full rounded-xl border border-[#E5E5E5] bg-white dark:bg-[#2c2c30] dark:border-[#2c2c30] px-4 py-3 text-sm outline-none transition focus:border-[#C19000] focus:ring-2 focus:ring-[#C19000]/10"
             />
         </label>
     );
@@ -334,7 +334,7 @@ function Opcao({ titulo, descricao, ativo, onChange }) {
     return (
         <div className="flex items-center justify-between gap-4 py-4">
             <div className="min-w-0">
-                <p className="text-sm font-medium text-[#252525]">
+                <p className="text-sm font-medium text-[#252525] dark:text-white">
                     {titulo}
                 </p>
 
