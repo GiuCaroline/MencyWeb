@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { UserCircleIcon, SlidersHorizontalIcon, ShieldCheckIcon, BellIcon, FloppyDiskIcon, EyeIcon, EyeSlashIcon } from "@phosphor-icons/react";
 
-export default function Configuracoes( tema, onAlterarTema ) {
+export default function Configuracoes({ tema, onAlterarTema }) {
     const [nome, setNome] = useState("Seu nome");
     const [email, setEmail] = useState("seuemail@email.com");
     const [cpf, setCpf] = useState("111.111.111-11");
